@@ -22,11 +22,7 @@ public class Lang {
 	public static final BaseComponent[] LINE = TextComponent.fromLegacyText(ChatColor.DARK_GRAY + ChatColor.STRIKETHROUGH.toString() + "                                                                     ");
 	public static final BaseComponent[] UNKNOWN_PLAYER = TextComponent.fromLegacyText(RED + "Cannot find that player on the network!");
 	public static final BaseComponent[] UNKNOWN_SERVER = TextComponent.fromLegacyText(RED + "Cannot find that server!");
-	public static final BaseComponent[] UNKNOWN_UUID = TextComponent.fromLegacyText(RED + "Could not find UUID from name!");
 
-	public static final BaseComponent[] CANNOT_FIND_RANK = TextComponent.fromLegacyText(RED + "Could not find rank!");
-	public static final BaseComponent[] PLAYER_UNKNOWN_RANK = TextComponent.fromLegacyText(RED + "Player does not have that rank!");
-	public static final BaseComponent[] PLAYER_ALREADY_RANK = TextComponent.fromLegacyText(RED + "Player already has that rank!");
 	public static final BaseComponent[] R_TARGET_UNKNOWN = TextComponent.fromLegacyText(ChatColor.RED + "Player not found! use /msg");
 
 	public static BaseComponent[] msgSender(String targetName, String message) {
