@@ -39,6 +39,11 @@ public class ServerCommand extends CommandBase {
 			for(ServerInfo serverInfo : ProxyServer.getInstance().getServers().values()) {
 				if(args[0].equalsIgnoreCase(serverInfo.getName())) {
 
+					if(player.getServer().getInfo().equals(serverInfo)) {
+						player.sendMessage(Lang.ALREADY_CONNECTED);
+						return;
+					}
+
 					player.sendMessage(Lang.sending(serverInfo.getName()));
 					player.connect(serverInfo);
 					return;

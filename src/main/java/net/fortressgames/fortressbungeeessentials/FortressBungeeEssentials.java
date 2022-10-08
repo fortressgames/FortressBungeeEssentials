@@ -43,5 +43,6 @@ public class FortressBungeeEssentials extends Plugin {
 }
 
 //TODO
+// announcer
 // join / quit message
 // ping listener

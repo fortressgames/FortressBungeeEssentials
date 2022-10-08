@@ -23,6 +23,9 @@ public class Lang {
 	public static final BaseComponent[] UNKNOWN_PLAYER = TextComponent.fromLegacyText(RED + "Cannot find that player on the network!");
 	public static final BaseComponent[] UNKNOWN_SERVER = TextComponent.fromLegacyText(RED + "Cannot find that server!");
 
+	public static final BaseComponent[] ALREADY_CONNECTED = TextComponent.fromLegacyText(RED + "You are already connected to this server!");
+	public static final BaseComponent[] TARGET_ALREADY_CONNECTED = TextComponent.fromLegacyText(RED + "Target is already connected to this server!");
+
 	public static final BaseComponent[] R_TARGET_UNKNOWN = TextComponent.fromLegacyText(ChatColor.RED + "Player not found! use /msg");
 
 	public static BaseComponent[] msgSender(String targetName, String message) {

@@ -25,25 +25,38 @@ public class ConnectCommand extends CommandBase {
 			return;
 		}
 
-		// Target player
-		ProxiedPlayer target = ProxyServer.getInstance().getPlayer(args[0]);
+		if(args.length == 2) {
+			// Target player
+			ProxiedPlayer target = ProxyServer.getInstance().getPlayer(args[0]);
 
-		if(target == null) {
-			sender.sendMessage(Lang.UNKNOWN_PLAYER);
-			return;
-		}
-
-		for(ServerInfo serverInfo : ProxyServer.getInstance().getServers().values()) {
-			if(sender.getName().equalsIgnoreCase(args[1])) {
-
-				sender.sendMessage(Lang.connectSending(target.getName(), serverInfo.getName()));
-				target.sendMessage(Lang.connectSent(serverInfo.getName()));
-				target.connect(serverInfo);
+			if(target == null) {
+				sender.sendMessage(Lang.UNKNOWN_PLAYER);
 				return;
 			}
-		}
 
-		sender.sendMessage(Lang.UNKNOWN_SERVER);
+			ServerInfo targetServer = null;
+			for(ServerInfo serverInfo : ProxyServer.getInstance().getServers().values()) {
+				if(serverInfo.getName().equalsIgnoreCase(args[1])) {
+					targetServer = serverInfo;
+					break;
+				}
+			}
+
+			if(targetServer != null) {
+
+				if(target.getServer().getInfo().equals(targetServer)) {
+					sender.sendMessage(Lang.TARGET_ALREADY_CONNECTED);
+					return;
+				}
+
+				sender.sendMessage(Lang.connectSending(target.getName(), targetServer.getName()));
+				target.sendMessage(Lang.connectSent(targetServer.getName()));
+				target.connect(targetServer);
+
+			} else {
+				sender.sendMessage(Lang.UNKNOWN_SERVER);
+			}
+		}
 	}
 
 	@Override
