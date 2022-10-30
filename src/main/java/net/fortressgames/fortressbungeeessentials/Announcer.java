@@ -19,6 +19,9 @@ public class Announcer {
 	 */
 	public Announcer() {
 		messages = FortressBungeeEssentials.getInstance().getConfig().getConfig().getStringList("Announcer-Messages");
+
+		if(messages.isEmpty()) return;
+
 		trigger();
 	}
 
